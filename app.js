@@ -33,7 +33,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 //Aqui registramos la carpeta con los archivos parciales.
 HBS.registerPartials(`${__dirname}/views/partials`);
-//Añadimos el watcher a nuestro directorio partials.
+//Aï¿½adimos el watcher a nuestro directorio partials.
 HBSUTILS.registerPartials(`${__dirname}/views/partials`);
 HBSUTILS.registerWatchedPartials(`${__dirname}/views/partials`);
 app.use(logger('dev'));
@@ -65,5 +65,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;

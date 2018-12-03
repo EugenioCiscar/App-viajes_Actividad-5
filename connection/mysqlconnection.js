@@ -3,11 +3,11 @@ const Mysql = require('mysql');
 class mysqlConnection {
     static getConnection() {
         return Mysql.createConnection({
-            // Datos de conexión
+            // Datos de conexiï¿½n
             host: 'localhost',
             user: 'root',
             password: 'mysql',
-            database: 'agenciaApp'
+            database: 'agenciaAPP'
         })
     }
 }

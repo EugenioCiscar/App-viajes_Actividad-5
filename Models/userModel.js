@@ -11,7 +11,7 @@ class usuario {
             if (!conn) return rej('No se conecto a la BDD');
             let CONSULTA = 'INSERT INTO usuarios SET ?';
             this.conn.query(CONSULTA, [user], (error, respuesta) => {
-                if (error) return rej('No se pudo insertar el usuario por: ' + error);
+                if (error) return req('No se pudo insertar el usuario por: ' + error);
                 return res(respuesta);
             });
         });
@@ -21,7 +21,7 @@ class usuario {
             if (!conn) return rej("No se conecto a la BDD");
             let CONSULTA = 'SELECT * FROM usuarios';
             this.conn.query(CONSULTA, (error, respuesta) => {
-                if (error) return rej("No se pudieron obtener los usuario -> " + error);
+                if (error) return req("No se pudieron obtener los usuario -> " + error);
                 return res(respuesta);
             })
         })

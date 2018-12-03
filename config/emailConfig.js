@@ -6,8 +6,8 @@ class emailconfig {
         return nodemailer.createTransport({
             service: 'Gmail',
             auth: {
-                user: 'htmlkevinrivera@gmail.com',
-                pass: 'kevinrivera1998'
+                user: 'ghnodemailer@gmail.com',
+                pass: 'nodemailer'
             },
         }, {
                 from: '',
