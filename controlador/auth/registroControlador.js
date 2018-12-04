@@ -1,7 +1,7 @@
 const controlador = require('../controlador');
 const modelousuario = require('../../Models/userModel');
 const encriptador = require('../../servicios/encriptamiento');
-const uuidv1 = require('uuid/v1');
+const uuid = require('uuid');
 const email = require('../../servicios/email');
 
 
@@ -49,7 +49,7 @@ class registroControlador extends controlador {
         } catch (e) {
             console.log("No se han podido recibir los usuarios" + e);
         }
-        /*Encriptacion de la contraseña*/
+        /*Encriptacion de la contraseï¿½a*/
         var passEncrypt = encriptador.encriptarPass(password);
         /*Si existe es igual a false podremos procedes a registrar al usuario*/
         if (!existeEmail && !existeUser) {
@@ -57,7 +57,7 @@ class registroControlador extends controlador {
                 usuario: usuario,
                 email: emailcampo,
                 password: passEncrypt,
-                hash: uuidv1()
+                hash: uuid()
             }
             try {
                 let resultado = await controlUsuario.insert(user);

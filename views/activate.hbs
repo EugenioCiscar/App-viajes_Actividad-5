@@ -1,0 +1,17 @@
+
+
+<h1>PAGINA DE ACTIVACIÓN</h1>
+{{#if error}}
+    <div class="alert-warning">
+        <h2>UPsss {{error}}</h2>
+    </div>
+{{/if}}
+{{#unless error}}
+    <div class="alert-success">
+        <h2>Tu cuenta se encuentra activa</h2>
+        <a href="http://localhost:3000/login">Login</a>
+
+    </div>
+{{/unless}}
+
+
