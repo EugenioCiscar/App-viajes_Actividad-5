@@ -7,16 +7,17 @@ class loginControlador extends controlador {
     constructor(res, req, next) {
         super(res, req, next)
     }
+
     index() {
         if (this.req.flash.passfail) {
-            this.res.render('login', { error: this.req.flash.passfail });
+            this.res.render('login', {error: this.req.flash.passfail});
             this.req.flash.error = null;
         }
-        if(this.req.flash.error){
-          return  this.res.render('login', { error: this.req.flash.error });
+        if (this.req.flash.error) {
+            return this.res.render('login', {error: this.req.flash.error});
         }
         if (this.req.flash.noactivo) {
-            this.res.render('login', { noactivo: this.req.flash.noactivo });
+            this.res.render('login', {noactivo: this.req.flash.noactivo});
             this.req.flash.noactivo = null;
         }
         this.res.render('login');
@@ -31,9 +32,9 @@ class loginControlador extends controlador {
         try {
             let modelo = new modelousuario();
             let respuesta = await modelo.obtenerByEmail(this.req.body.emaillogin);
-
-           if(respuesta.length==0){
-                this.req.flash.error="El usuario no existe";
+            console.log(respuesta[0].admin);
+            if (respuesta.length == 0) {
+                this.req.flash.error = "El usuario no existe";
                 this.res.redirect('iniciarsesion');
             }
             let passwordres = respuesta[0].password;
@@ -41,28 +42,22 @@ class loginControlador extends controlador {
             var isActive = false;
 
 
-
             if (respuesta[0].active === 1) {
                 console.log('Estado del usuario -> ' + respuesta[0].active);
-
-
-                //LLAMADA AL ADMINISTRADOR//
-                if (respuesta[0].admin === 1) {
-                    this.req.session.username = respuesta[0].usuario;
-                    this.res.redirect('/');
+                if (respuesta[0].admin == 1) {
+                    this.req.session.username = 'ADMINISTRADOR';
                 }
-
-
+                if (respuesta[0].admin == 0) {
+                    this.req.session.username = respuesta[0].usuario;
+                }
 
                 //MODIFICAR ESTA PARTE DEL CODIGO!
 
 
-
                 if (encriptador.comparePass(Ipass, passwordres)) {
-                    this.req.session.username = respuesta[0].usuario;
+                    console.log('usuario activo');
+                    console.log(respuesta[0]);
                     this.res.redirect('/');
-
-                    console.log(this.req.session.username);
 
                 } else {
                     console.log('pass incorrecto');
@@ -74,13 +69,13 @@ class loginControlador extends controlador {
                 this.req.flash.noactivo = 'El usuario no se encuentra activado';
                 this.res.redirect('/iniciarsesion');
             }
-            
+
         } catch (e) {
             this.res.send('Fallo de verificacion' + e);
         }
     }
 
 
-
 }
+
 module.exports = loginControlador;
