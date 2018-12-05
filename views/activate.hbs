@@ -1,17 +1,20 @@
+<body>
+<div class="activate text-center" >
 
 
-<h1>PAGINA DE ACTIVACIÓN</h1>
 {{#if error}}
-    <div class="alert-warning">
+    <div class="alert-warning activate text-center">
         <h2>UPsss {{error}}</h2>
     </div>
 {{/if}}
 {{#unless error}}
-    <div class="alert-success">
+    <div class="alert-success texto-activate">
+        <h1>PAGINA DE ACTIVACIÓN</h1>
         <h2>Tu cuenta se encuentra activa</h2>
-        <a href="http://localhost:3000/login">Login</a>
+        <a href="http://localhost:3000/iniciarsesion">Login</a>
 
     </div>
 {{/unless}}
 
-
+</div>
+</body>

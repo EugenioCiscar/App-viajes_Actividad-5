@@ -48,7 +48,7 @@
 }
 
 /*======FIN========*/
-/*FUENTE TAMAÑO*/
+/*FUENTE TAMAï¿½O*/
 .fuente-grande {
     font-size: 4vw
 }
@@ -57,7 +57,7 @@
     font-size: 5vh
 }
 
-.fuente-pequeña {
+.fuente-pequeï¿½a {
     font-weight: 1vw
 }
 
@@ -299,7 +299,7 @@ header {
 
 /*=========================PABLO ADRIAENSENS=================================*/
 
-/*Sección Contact*/
+/*Secciï¿½n Contact*/
 .contact-row {
     padding: 2vh 0 0 0;
 }
@@ -359,7 +359,7 @@ header {
     color: black;
 }
 
-/*Sección Footer*/
+/*Secciï¿½n Footer*/
 
 
 
@@ -510,4 +510,14 @@ header {
     margin-top: 3vh;
     margin-bottom: 2vh;
     padding-top:2vh;
+}
+
+/*-----------PAGINA ACTIVACION-----------*/
+
+.activate{
+    padding-top: 9em;
+    background-color: #141939;
+}
+.texto-activate{
+    height: 19em;
 }

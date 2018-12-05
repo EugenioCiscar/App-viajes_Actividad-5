@@ -60,7 +60,7 @@ class loginControlador extends controlador {
 
                 if (encriptador.comparePass(Ipass, passwordres)) {
                     this.req.session.username = respuesta[0].usuario;
-                    this.res.redirect('/administrador');
+                    this.res.redirect('/');
 
                     console.log(this.req.session.username);
 

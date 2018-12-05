@@ -53,6 +53,10 @@ router.get('/activate/:hash', function (req, res, next){
     control.activarUsuario();
 });
 
+router.get('/activado',function (req,res,next){
+    res.render('activate');
+})
+
 
 
 

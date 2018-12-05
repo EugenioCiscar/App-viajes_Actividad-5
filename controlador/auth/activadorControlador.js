@@ -16,14 +16,10 @@ class controladorActivacion extends controladorbase {
             try {
                 console.log(resultado[0].id)
                 let respuesta = await modelo.activarUsuario(resultado[0].id);
-                if (respuesta.changedRows >0){
-                    this.res.render('activate');
-                }else{
-                    this.res.render('activate',{error:"El hash no existe"})
-                }
+
                 /*Borramos el hash del usuario y redirijimos al login*/
                 let answer = await modelo.borrarHash(resultado[0].id);
-                this.res.send('USUARIO ACTIVADO');
+                this.res.redirect('/activado');
             } catch (e) {
                 console.log('Error al activar el usuario porque: -> ' + respuesta);
                 this.res.render('activate',{error: error});
